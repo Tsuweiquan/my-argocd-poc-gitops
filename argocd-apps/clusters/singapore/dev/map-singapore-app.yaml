@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: map-singapore-app
+  namespace: argocd
+spec:
+  project: singapore
+  source:
+    repoURL: https://github.com/tsuweiquan/my-argocd-poc-gitops.git
+    targetRevision: HEAD
+    path: base/map-singapore-app # Points to helm chart folder
+    helm:
+      valueFiles:
+        - ../../clusters/singapore/dev/map-singapore-app/values.yaml
+  destination:
+    server: https://172.18.0.3:6443 # Your dev cluster
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
