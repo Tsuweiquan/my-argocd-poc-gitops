@@ -12,6 +12,7 @@ spec:
     helm:
       valueFiles:
         - ../../clusters/singapore/dev/map-singapore-app/values.yaml
+      version: "1.0.0" # Pin chart version
   destination:
     server: https://172.18.0.3:6443 # Your dev cluster
     namespace: dev
