@@ -6,13 +6,13 @@ metadata:
 spec:
   project: singapore
   source:
+    # Best to have a separate chart repository
     repoURL: https://github.com/tsuweiquan/my-argocd-poc-gitops.git
-    targetRevision: HEAD
+    targetRevision: HEAD # if repoURL is a git repo, use HEAD, if repoURL is chart repo url, then this is the Chart version
     path: base/map-singapore-app # Points to helm chart folder
     helm:
       valueFiles:
         - ../../clusters/singapore/dev/map-singapore-app/values.yaml
-      version: "1.0.0" # Pin chart version
   destination:
     server: https://172.18.0.3:6443 # Your dev cluster
     namespace: dev
