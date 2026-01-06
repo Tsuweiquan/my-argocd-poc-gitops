@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: map-singapore-app-dev
+  name: map-singapore-app-uat
   namespace: argocd
 spec:
   project: singapore
@@ -12,10 +12,10 @@ spec:
     path: base/map-singapore-app # Points to helm chart folder
     helm:
       valueFiles:
-        - ../../clusters/singapore/dev/map-singapore-app/values.yaml
+        - ../../clusters/singapore/uat/map-singapore-app/values.yaml
   destination:
-    server: https://172.18.0.3:6443 # Your dev cluster
-    namespace: dev
+    server: https://172.18.0.3:6443 # Your uat cluster
+    namespace: uat
   syncPolicy:
     automated:
       prune: true
