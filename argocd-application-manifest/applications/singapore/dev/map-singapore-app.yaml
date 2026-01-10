@@ -14,7 +14,7 @@ spec:
       valueFiles:
         - ../../applications-values/singapore/dev/map-singapore-app/values.yaml
   destination:
-    server: https://172.18.0.4:6443 # Your dev cluster
+    server: https://172.19.0.2:6443 # Your dev cluster
     namespace: dev
   syncPolicy:
     automated:
