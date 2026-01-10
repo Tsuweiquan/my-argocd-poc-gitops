@@ -3,11 +3,13 @@ image:
   repository: tsuweiquan/map-singapore-app
   pullPolicy: IfNotPresent
   tag: 1.1.4
-httpRoute:
-  hostnames:
-    - sg-app-uat.sg.local
-  rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+  hosts:
+    - host: sg-app-uat.sg.local
+      paths:
+        - path: /
+          pathType: Prefix
