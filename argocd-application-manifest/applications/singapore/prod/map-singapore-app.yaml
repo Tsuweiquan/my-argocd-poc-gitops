@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: map-singapore-app-prod
+  namespace: argocd
+spec:
+  project: singapore
+  source:
+    # Best to have a separate chart repository
+    repoURL: https://github.com/tsuweiquan/my-argocd-poc-gitops.git
+    targetRevision: HEAD # if repoURL is a git repo, use HEAD, if repoURL is chart repo url, then this is the Chart version
+    path: application-helm-charts/map-singapore-app # Points to helm chart folder
+    helm:
+      valueFiles:
+        - ../../applications-values/singapore/prod/map-singapore-app/values.yaml
+  destination:
+    server: https://172.19.0.2:6443 # Your prod cluster
+    namespace: prod
+  syncPolicy: {}
+  syncOptions:
+    - Validate=true
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
