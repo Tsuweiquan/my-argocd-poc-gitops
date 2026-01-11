@@ -17,8 +17,6 @@ spec:
     server: https://172.19.0.2:6443 # Your prod cluster
     namespace: prod
   syncPolicy: {}
-  syncOptions:
-    - Validate=true
   #   automated:
   #     prune: true
   #     selfHeal: true
