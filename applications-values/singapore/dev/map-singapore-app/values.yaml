@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: tsuweiquan/map-singapore-app
   pullPolicy: IfNotPresent
-  tag: SNAPSHOT-1.1.7
+  tag: SNAPSHOT-1.1.8
 ingress:
   enabled: true
   className: traefik
