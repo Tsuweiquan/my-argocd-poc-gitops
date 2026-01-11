@@ -2,12 +2,11 @@ replicaCount: 1
 image:
   repository: tsuweiquan/map-singapore-app
   pullPolicy: IfNotPresent
-  tag: 1.1.5
+  tag: 1.1.8
 ingress:
   enabled: true
-  className: "traefik"
+  className: traefik
   annotations: {}
-    # kubernetes.io/ingress.class: nginx
   hosts:
     - host: sg-app-prod.sg.local
       paths:
